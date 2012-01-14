@@ -1,0 +1,5 @@
+git clone git://github.com/haidara/dotfiles.git ~/dotfiles
+
+ln -s ~/dotfiles/bashrc ~/.bashrc
+ln -s ~/dotfiles/vim ~/.vim
+ln -s ~/dotfiles/vim/vimrc ~/.vimrc
