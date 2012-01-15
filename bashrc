@@ -169,6 +169,12 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export CLICOLOR=1
 # use yellow for directories
 export LSCOLORS=dxfxcxdxbxegedabagacad
-export GIT_EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim -g -f '
+
+if [ -d /Applications/ ];
+then
+    export GIT_EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim -g -f '
+else
+    export GIT_EDITOR='vi'
+fi
 
 
