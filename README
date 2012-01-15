@@ -8,4 +8,3 @@ ln -s ~/dotfiles/vim ~/.vim
 ln -s ~/dotfiles/vim/vimrc ~/.vimrc
 ln -s ~/dotfiles/mc ~/.mc
 ln -s ~/dotfiles/git-completion.bash  ~/.git-completion.bash
-
