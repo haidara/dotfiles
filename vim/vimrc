@@ -60,6 +60,9 @@ if(exists(":SuperTabHelp"))
     let g:SuperTabDefaultCompletionType = "context"
 endif
 
+"let g:snips_trigger_key='<c-j>'
+"let g:snips_trigger_key_backwards='<c-space>'
+
 
 "  ================================="
 "   General options
