@@ -13,7 +13,7 @@ call pathogen#helptags()
 
 
 :au	    FileType		*               :set complete-=t
-:au     FileType        *               set commentstring=//\ %s
+:au     FileType        php,js          set commentstring=//\ %s
 ":au	    FileType		php             so ~/.vim/php.vim
 :au	    FileType		php             set makeprg=php\ -l\ %
 :au	    FileType		php             set errorformat=%m\ in\ %f\ on\ line\ %l
@@ -21,7 +21,7 @@ call pathogen#helptags()
 :au     BufRead			*/doc/*.txt 	map <c-BS> 	 <c-t>
 :au	    VimEnter     	*		        :call ChangeDirectory()
 :au     BufWritePost 	.vimrc   	    so ~/.vimrc
-:au     BufReadPost fugitive://* set bufhidden=delete
+:au     BufReadPost     fugitive://*    set bufhidden=delete
 
 " go back to where you left
 ""au      BufReadPost             *               if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
