@@ -102,6 +102,9 @@ fi
 if [ -f /Users/haidara/.git-completion.bash ]; then
   . /Users/haidara/.git-completion.bash
 fi
+if [ -f /home/haidara/.git-completion.bash ]; then
+  . /home/haidara/.git-completion.bash
+fi
 
 #if [[ -f /.dapper_chroot ]]; then
 #    PS1="[\u@\h:/dapper_chroot/\w]\$ "
