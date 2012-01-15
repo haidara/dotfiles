@@ -46,10 +46,19 @@ let g:ctags_statusline=1
 let g:netrw_liststyle= 1
 let php_sql_query = 1
 let php_folding = 1
-let g:tagbar_userarrows=1
-let g:CommandTMaxHeight=8
-set wildignore+=*.o,*.obj,test/node_modules/**
-let g:SuperTabDefaultCompletionType = "context"
+
+if(exists(":TagBarClose")) 
+    let g:tagbar_userarrows=1
+endif
+
+if(exists(":CommandT")) 
+    let g:CommandTMaxHeight=8
+    set wildignore+=*.o,*.obj,test/node_modules/**
+endif
+
+if(exists(":SuperTabHelp")) 
+    let g:SuperTabDefaultCompletionType = "context"
+endif
 
 
 "  ================================="
