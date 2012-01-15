@@ -1,8 +1,10 @@
 mkdir ~/bak
-mv ~/.vim ~/.bashrc ~/.vimrc ~/bak/
+mv ~/.vim ~/.bashrc ~/.vimrc ~/.mc ~/bak/
 
 git clone git://github.com/haidara/dotfiles.git ~/dotfiles
 
 ln -s ~/dotfiles/bashrc ~/.bashrc
 ln -s ~/dotfiles/vim ~/.vim
 ln -s ~/dotfiles/vim/vimrc ~/.vimrc
+ln -s ~/dotfiles/mc ~/.mc
+
