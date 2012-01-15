@@ -179,6 +179,8 @@ map \g :execute "grep -R --include '*.php' --include '*.js' " . expand("<cword>"
 map <Space><Space> :CommandT<CR>
 map \| :only<cr>
 map gf :sp <cfile><cr>
+map Y y$    
+map ; :
 
 imap =. => 
 imap <M-x> <esc>
