@@ -1,3 +1,6 @@
+mkdir ~/bak
+mv ~/.vim ~/.bashrc ~/.vimrc ~/bak/
+
 git clone git://github.com/haidara/dotfiles.git ~/dotfiles
 
 ln -s ~/dotfiles/bashrc ~/.bashrc
