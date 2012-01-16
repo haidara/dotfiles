@@ -2,6 +2,26 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
 :filetype on
+
+"set runtimepath-=~/.vim
+"set runtimepath-=~/.vim/bundle/autoclose
+"set runtimepath-=~/.vim/bundle/checksyntax
+" set runtimepath-=~/.vim/bundle/command-t
+"set runtimepath-=~/.vim/bundle/commentary
+"set runtimepath-=~/.vim/bundle/fugitive
+"set runtimepath-=~/.vim/bundle/myPlugin
+"set runtimepath-=~/.vim/bundle/pasta
+"set runtimepath-=~/.vim/bundle/supertab
+"set runtimepath-=~/.vim/bundle/tabular
+"set runtimepath-=~/.vim/bundle/tagbar
+"set runtimepath-=~/.vim/bundle/tlib_vim
+"set runtimepath-=~/.vim/bundle/vim-addon-mw-utils
+"set runtimepath-=/usr/share/vim/vimfiles
+"set runtimepath-=/usr/share/vim/vim73
+"set runtimepath-=/usr/share/vim/vimfiles/after
+"set runtimepath-=~/.vim/bundle/tabular/after
+"set runtimepath-=~/.vim/after
+
 ":au	FileType		perl				so ~/.vim/perl.vim
 ":au	FileType		php,html			so ~/.vim/html.vim
 ":au	FileType		c,cpp				so ~/.vim/c.vim
@@ -49,6 +69,7 @@ let php_folding = 1
 
 let g:tagbar_userarrows=1
 let g:CommandTMaxHeight=8
+let g:CommandTMaxFiles=3000
 set wildignore+=*.o,*.obj,test/node_modules/**
 let g:SuperTabDefaultCompletionType = "context"
 
@@ -73,7 +94,8 @@ set ignorecase
 set smartcase
 set scrolloff=2
 set incsearch
-set backspace=2
+" set backspace=2
+set backspace=start,indent,eol
 set ruler
 set visualbell
 ""set cindent
@@ -131,7 +153,7 @@ set statusline+=\ \ \ \  "spaces
 set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ \ \ \ %P    "percent through file
-set ofu=syntaxcomplete#Complete
+" set ofu=syntaxcomplete#Complete
 
 
 "  ================================="
@@ -260,16 +282,16 @@ endfunc
 
 
 
-"function! InsertTabWrapper()
-"	let col = col('.') - 1
-"	if !col || getline('.')[col - 1] !~ '\k'
-"		return "\<tab>"
-"	else
-"        return "\<c-p>"
-"	endif
-"endfunction
-"
-"inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+" function! InsertTabWrapper()
+" 	let col = col('.') - 1
+" 	if !col || getline('.')[col - 1] !~ '\k'
+" 		return "\<tab>"
+" 	else
+"         return "\<c-p>"
+" 	endif
+" endfunction
+
+" inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 
 
 function! CompactSQLTables()
