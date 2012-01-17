@@ -61,17 +61,17 @@ hi Folded	    guibg=NONE  guifg=Grey40
 hi FoldColumn	guibg=NONE  guifg=LightGrey
 hi User1        guifg=white guibg=red
 
-let g:ctags_path='/usr/bin/ctags'
-let g:ctags_statusline=1
-let g:netrw_liststyle= 1
-let php_sql_query = 1
-let php_folding = 1
+" let g:ctags_path='/usr/bin/ctags'
+" let g:ctags_statusline=1
+" let g:netrw_liststyle= 1
+" let php_sql_query = 1
+" let php_folding = 1
 
-let g:tagbar_userarrows=1
-let g:CommandTMaxHeight=8
-let g:CommandTMaxFiles=3000
-set wildignore+=*.o,*.obj,test/node_modules/**
-let g:SuperTabDefaultCompletionType = "context"
+" let g:tagbar_userarrows=1
+" let g:CommandTMaxHeight=8
+" let g:CommandTMaxFiles=3000
+" set wildignore+=*.o,*.obj,test/node_modules/**
+" let g:SuperTabDefaultCompletionType = "context"
 
 "let g:snips_trigger_key='<c-j>'
 "let g:snips_trigger_key_backwards='<c-space>'
@@ -198,7 +198,7 @@ map <M-down> <c-w>j
 map <D-Up> <c-w>k
 map <D-down> <c-w>j
 map \g :execute "grep -R --include '*.php' --include '*.js' " . expand("<cword>") . " *" <CR> :copen<cr>
-map <Space><Space> :CommandT<CR>
+" map <Space><Space> :CommandT<CR>
 map \| :only<cr>
 map gf :sp <cfile><cr>
 map Y y$    
