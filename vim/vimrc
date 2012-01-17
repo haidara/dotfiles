@@ -71,7 +71,7 @@ hi User1        guifg=white guibg=red
 " let g:CommandTMaxHeight=8
 " let g:CommandTMaxFiles=3000
 " set wildignore+=*.o,*.obj,test/node_modules/**
-let g:SuperTabDefaultCompletionType = "context"
+" let g:SuperTabDefaultCompletionType = "context"
 
 "let g:snips_trigger_key='<c-j>'
 "let g:snips_trigger_key_backwards='<c-space>'
