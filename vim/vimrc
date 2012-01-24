@@ -204,6 +204,7 @@ map \| :only<cr>
 map gf :sp <cfile><cr>
 map Y y$    
 map ; :
+map <silent> <F4> :!ctags -f ./tags --langmap="php:+.inc" -h ".php.inc" -R --totals=yes --tag-relative=yes --PHP-kinds=+cf-v .<cr>
 
 imap =. => 
 imap <M-x> <esc>

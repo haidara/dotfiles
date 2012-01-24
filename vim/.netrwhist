@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/Volumes/Macintosh HD/Users/HD haidara/Documents'
 let g:netrw_dirhist_2='/Users/haidara/dotfiles/vim/bundle/commentary'
 let g:netrw_dirhist_3='/Users/haidara/dotfiles/vim/bundle/commentary/plugin'
+let g:netrw_dirhist_4='/Applications/MacVim.app/Contents/Resources/vim/runtime/syntax'
