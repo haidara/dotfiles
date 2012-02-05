@@ -29,3 +29,4 @@ setlocal foldmethod=manual
 " Turn on PHP fast folds
 "EnableFastPHPFolds
 
+

@@ -20,6 +20,7 @@ alias office="ssh emrlocal mysql office"
 alias emrlocal="ssh emrlocal"
 alias ssvi="ssh ss 'vim /emr/www/'"
 alias emr="cd ~/Mounts/emr/www"
+alias myip='lynx --dump http://pfsense.org/ip.php'
 
 
 

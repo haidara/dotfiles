@@ -32,14 +32,15 @@ call pathogen#helptags()
 ":au	BufWritePost 	.vimrc				so ~/.vimrc
 
 
+:au     BufRead     *.php           set ft=php.html
+:au     BufNewFile  *.php           set ft=php.html
 :au	    FileType		*               :set complete-=t
-:au     FileType        php,js          set commentstring=//\ %s
-":au	    FileType		php             so ~/.vim/php.vim
+:au     FileType    php,js          set commentstring=//\ %s
 :au	    FileType		php             set makeprg=php\ -l\ %
 :au	    FileType		php             set errorformat=%m\ in\ %f\ on\ line\ %l
-:au     BufRead			*/doc/*.txt 	map <c-Return> <c-]>
-:au     BufRead			*/doc/*.txt 	map <c-BS> 	 <c-t>
-:au	    VimEnter     	*		        :call ChangeDirectory()
+:au     BufRead			*/doc/*.txt 	  map <c-Return> <c-]>
+:au     BufRead			*/doc/*.txt 	  map <c-BS> 	 <c-t>
+:au	    VimEnter     	*		          :call ChangeDirectory()
 :au     BufWritePost 	.vimrc   	    so ~/.vimrc
 :au     BufReadPost     fugitive://*    set bufhidden=delete
 
