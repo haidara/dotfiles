@@ -206,6 +206,8 @@ map gf :sp <cfile><cr>
 map Y y$    
 map ; :
 map <silent> <F4> :!ctags -f ./tags --langmap="php:+.inc" -h ".php.inc" -R --totals=yes --tag-relative=yes --PHP-kinds=+cf-v .<cr>
+map <F5> :GundoToggle<cr>
+
 
 imap =. => 
 imap <M-x> <esc>
@@ -222,8 +224,8 @@ imap jj $j
 " visual shifting (builtin-repeat)
 vnoremap . :normal .<CR>
 vnoremap <M-x> <esc>
-vnoremap <tab> >gv
-vnoremap <S-tab> <gv
+" vnoremap <tab> >gv
+" vnoremap <S-tab> <gv
 vnoremap \9 <ESC>`>a)<ESC>`<i(<ESC>
 vnoremap \" <ESC>`>a"<ESC>`<i"<ESC>
 vnoremap \' <ESC>`>a'<ESC>`<i'<ESC>
@@ -422,5 +424,16 @@ function! ChangeDirectory()
     endif
 
 endfunction
+function! ResCur()
+  if line("'\"") <= line("$")
+    normal! g`"
+    return 1
+  endif
+endfunction
+
+augroup resCur
+  autocmd!
+  autocmd BufWinEnter * call ResCur()
+augroup END
 
 

@@ -5,7 +5,7 @@ snippet proto
 		${4:// body...}
 	};
 # Function
-snippet fun
+snippet jfun
 	function ${1:function_name} (${2:argument}) {
 		${3:// body...}
 	}
@@ -20,22 +20,22 @@ snippet (f
 		${3:/* code */}
 	}(${2}));
 # if
-snippet if
+snippet jif
 	if (${1:true}) {
 		${2}
 	}
 # if ... else
-snippet ife
+snippet jife
 	if (${1:true}) {
 		${2}
 	} else {
 		${3}
 	}
 # tertiary conditional
-snippet t
+snippet jt
 	${1:/* condition */} ? ${2:a} : ${3:b}
 # switch
-snippet switch
+snippet jswitch
 	switch(${1:expression}) {
 		case '${3:case}':
 			${4:// code}
@@ -51,7 +51,7 @@ snippet case
 		break;
 	${3}
 # for (...) {...}
-snippet for
+snippet jfor
 	for (var ${2:i} = 0; $2 < ${1:Things}.length; $2${3: += 1}) {
 		${4:$1[$2]}
 	}
