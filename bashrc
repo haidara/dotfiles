@@ -1,3 +1,10 @@
+if [ -d /Applications ];
+then
+    OS=MAC
+else
+    OS=UBUNTU
+fi
+
 alias rm="rm -i"
 alias ssh="ssh -X -t"
 alias df="df -h"
@@ -172,13 +179,14 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 export CLICOLOR=1
 # use yellow for directories
-export LSCOLORS=dxfxcxdxbxegedabagacad
 
-if [ -d /Applications/ ];
+if [ "$OS" = "MAC" ];
 then
     export GIT_EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim -g -f '
+    export LSCOLORS=dxfxcxdxbxegedabagacad
 else
     export GIT_EDITOR='vi'
+    alias ls="ls --color=auto"
 fi
 
 

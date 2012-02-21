@@ -5,11 +5,7 @@ set complete+=k
 
 "set keywordprg=/home/haidara/bin/phpdoc
 "set keywordprg=google-chrome
-set ts=2
-set sw=2
 set nowrap
-set expandtab
-set softtabstop=2
 set makeprg=php\ -l\ %
 set errorformat=%m\ in\ %f\ on\ line\ %l
 ":imap ( ()<Esc>i

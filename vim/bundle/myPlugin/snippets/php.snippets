@@ -1,2 +1,49 @@
 snippet par
-  print_r($1);
+	print_r(${1});
+snippet intable
+	$html.= "<table width=${1} cellpadding=0 cellspacing=0>";
+	$html.= "<tr>
+	           <th>
+	        ";
+
+	$html.= "</table>";
+snippet formclass
+	class ${1}
+	{
+		function __construct()
+		{
+
+		}
+
+		public function renderForm()
+		{
+		
+		}
+
+		public function processForm($POST)
+		{
+			extract($POST);
+		}
+
+		function _javascript() 
+		{
+			$html = "
+				<script>
+
+				</script>
+			";
+			return $html;
+		}
+
+		function _style() 
+		{
+			$html = "
+				<style>
+
+				</style>
+			";
+			return $html;
+		}
+	
+	}
+

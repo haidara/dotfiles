@@ -81,6 +81,7 @@ hi User1        guifg=white guibg=red
 "  ================================="
 "   General options
 "  ================================="
+" set guifont=Menlo:h12
 set nocompatible	                    " Use Vim defaults (much better!)
 set bs=start,indent,eol
 set ai			                        " always set autoindenting on
@@ -138,7 +139,7 @@ set foldtext=MyFoldText()
 set laststatus=2
 ""set statusline=%<%f %(%h%m%r %)%=%{TagName()} %{GitBranch()} %-15.15(%l,%c%V%)%P 
 ""set statusline=%<%f %{GitBranch()} %-15.15(%l,%c%V%)%P 
-set statusline=%t       "tail of the filename
+set statusline=%f       "tail of the filename
 ""set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
 set statusline+=\ \ \ [%{&ff}] "file format
 ""set statusline+=%h    "help file flag
@@ -156,6 +157,7 @@ set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ \ \ \ %P    "percent through file
 " set ofu=syntaxcomplete#Complete
 " set ofu=phpcomplete#phpComplete
+set clipboard=unnamed
 
 
 "  ================================="
@@ -207,9 +209,13 @@ map Y y$
 map ; :
 map <silent> <F4> :!ctags -f ./tags --langmap="php:+.inc" -h ".php.inc" -R --totals=yes --tag-relative=yes --PHP-kinds=+cf-v .<cr>
 map <F5> :GundoToggle<cr>
+"map <c-f> /function.*
+map ww viw
 
 
 imap =. => 
+imap -. ->
+imap -0 ->
 imap <M-x> <esc>
 imap <M-Right> <esc>$a
 imap <M-Left> <esc>0i
@@ -226,9 +232,10 @@ vnoremap . :normal .<CR>
 vnoremap <M-x> <esc>
 " vnoremap <tab> >gv
 " vnoremap <S-tab> <gv
-vnoremap \9 <ESC>`>a)<ESC>`<i(<ESC>
-vnoremap \" <ESC>`>a"<ESC>`<i"<ESC>
-vnoremap \' <ESC>`>a'<ESC>`<i'<ESC>
+vnoremap \] <ESC>`>a]<ESC>`<i[<ESC>vf]
+vnoremap \0 <ESC>`>a)<ESC>`<i(<ESC>vf)
+vnoremap \" <ESC>`>a"<ESC>`<i"<ESC>vf"
+vnoremap \' <ESC>`>a'<ESC>`<i'<ESC>vf'
 
 cmap ecl e class/class.
 cmap spc sp class/class.
