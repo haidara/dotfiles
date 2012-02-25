@@ -17,14 +17,14 @@ let g:colors_name = "torte"
 " GUI Comment : #80a0ff = Light blue
 
 " GUI
-highlight Normal     guifg=Grey90	guibg=Black
+highlight Normal     guifg=White	guibg=Grey10
 highlight Search     guifg=Black	guibg=Red	  gui=bold
 highlight Visual     guifg=#404040			      gui=bold
 highlight Cursor     guifg=Black	guibg=Green	gui=bold
 highlight Cursorline              guibg=grey20	
 highlight Special    guifg=Orange
 "highlight Comment    guifg=#80a0ff
-highlight Comment    guifg=Grey30
+highlight Comment    guifg=Grey40
 highlight StatusLine guifg=blue		guibg=white
 highlight Statement  guifg=Yellow			        gui=NONE
 highlight Type						                    gui=NONE

@@ -21,6 +21,9 @@ call pathogen#helptags()
 "set runtimepath-=/usr/share/vim/vimfiles/after
 "set runtimepath-=~/.vim/bundle/tabular/after
 "set runtimepath-=~/.vim/after
+if v:version < 702
+    set runtimepath-=~/.vim/bundle/vim-autocomplpop/
+endif
 
 ":au	FileType		perl				so ~/.vim/perl.vim
 ":au	FileType		php,html			so ~/.vim/html.vim
@@ -32,15 +35,15 @@ call pathogen#helptags()
 ":au	BufWritePost 	.vimrc				so ~/.vimrc
 
 
-:au     BufRead     *.php           set ft=php.html
-:au     BufNewFile  *.php           set ft=php.html
-:au	    FileType		*               :set complete-=t
-:au     FileType    php,js          set commentstring=//\ %s
+:au     BufRead         *.php           set ft=php.html
+:au     BufNewFile      *.php           set ft=php.html
+:au	    FileType		*               set complete-=t
+:au     BufRead         *.php,*.js      set commentstring=//\ %s
 :au	    FileType		php             set makeprg=php\ -l\ %
 :au	    FileType		php             set errorformat=%m\ in\ %f\ on\ line\ %l
-:au     BufRead			*/doc/*.txt 	  map <c-Return> <c-]>
-:au     BufRead			*/doc/*.txt 	  map <c-BS> 	 <c-t>
-:au	    VimEnter     	*		          :call ChangeDirectory()
+:au     BufRead			*/doc/*.txt 	map <c-Return> <c-]>
+:au     BufRead			*/doc/*.txt 	map <c-BS> 	 <c-t>
+:au	    VimEnter     	*		        call ChangeDirectory()
 :au     BufWritePost 	.vimrc   	    so ~/.vimrc
 :au     BufReadPost     fugitive://*    set bufhidden=delete
 
@@ -81,7 +84,7 @@ hi User1        guifg=white guibg=red
 "  ================================="
 "   General options
 "  ================================="
-" set guifont=Menlo:h12
+set guifont=Monaco:h11
 set nocompatible	                    " Use Vim defaults (much better!)
 set bs=start,indent,eol
 set ai			                        " always set autoindenting on
@@ -180,7 +183,7 @@ map <C-Tab> :tag <c-r>=expand("<cword>")<cr><cr>
 map \c :cn<CR>
 ""map \g :grep <cword> *<cr>
 map zz zO
-map '. `.           "move to the last modification spot
+map '. `.
 
 "tabs mapping
 map tt :tabnew<CR>

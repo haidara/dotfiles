@@ -1,11 +1,4 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/Users/haidara/dotfiles/vim/bundle/honza-snipmate-snippets'
-let g:netrw_dirhist_2='/Users/haidara/dotfiles/vim/bundle/honza-snipmate-snippets/snippets'
-let g:netrw_dirhist_3='/Users/haidara/Mounts/emr/www'
-let g:netrw_dirhist_4='/Users/haidara/dotfiles/vim/bundle/myPlugin'
-let g:netrw_dirhist_5='/Users/haidara/dotfiles/vim/bundle/myPlugin/after'
-let g:netrw_dirhist_6='/Users/haidara/dotfiles/vim/bundle/myPlugin/after/ftplugin'
-let g:netrw_dirhist_7='/Users/haidara/dotfiles/vim/bundle'
-let g:netrw_dirhist_8='/Users/haidara/dotfiles/vim/bundle/myPlugin'
-let g:netrw_dirhist_9='/Users/haidara/dotfiles/vim/bundle/myPlugin/colors'
+let g:netrw_dirhist_cnt =2
+let g:netrw_dirhist_1='/Users/haidara/dotfiles/vim/bundle/vim-autocomplpop'
+let g:netrw_dirhist_2='/Users/haidara/dotfiles/vim/bundle/vim-autocomplpop/plugin'
