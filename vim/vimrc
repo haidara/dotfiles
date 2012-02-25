@@ -8,36 +8,6 @@ call pathogen#helptags()
 
 :filetype on
 
-"set runtimepath-=~/.vim
-"set runtimepath-=~/.vim/bundle/autoclose
-"set runtimepath-=~/.vim/bundle/checksyntax
-" set runtimepath-=~/.vim/bundle/command-t
-"set runtimepath-=~/.vim/bundle/commentary
-"set runtimepath-=~/.vim/bundle/fugitive
-"set runtimepath-=~/.vim/bundle/myPlugin
-"set runtimepath-=~/.vim/bundle/pasta
-"set runtimepath-=~/.vim/bundle/supertab
-"set runtimepath-=~/.vim/bundle/tabular
-"set runtimepath-=~/.vim/bundle/tagbar
-"set runtimepath-=~/.vim/bundle/tlib_vim
-"set runtimepath-=~/.vim/bundle/vim-addon-mw-utils
-"set runtimepath-=/usr/share/vim/vimfiles
-"set runtimepath-=/usr/share/vim/vim73
-"set runtimepath-=/usr/share/vim/vimfiles/after
-"set runtimepath-=~/.vim/bundle/tabular/after
-"set runtimepath-=~/.vim/after
-"set runtimepath-=~/.vim/bundle/vim-autocomplpop/
-
-":au	FileType		perl				so ~/.vim/perl.vim
-":au	FileType		php,html			so ~/.vim/html.vim
-":au	FileType		c,cpp				so ~/.vim/c.vim
-":au	FileType		java				so ~/.vim/java.vim
-":au	FileType		*.jl,.sawfishrc		set ft=lisp
-":au	BufReadPost		.sawmillrc			set ft=lisp
-"when changing the vimrc file, reread so it's active
-":au	BufWritePost 	.vimrc				so ~/.vimrc
-
-
 :au     BufRead         *.php           set ft=php.html
 :au     BufNewFile      *.php           set ft=php.html
 :au	    FileType		*               set complete-=t
@@ -49,16 +19,6 @@ call pathogen#helptags()
 :au	    VimEnter     	*		        call ChangeDirectory()
 :au     BufWritePost 	.vimrc   	    so ~/.vimrc
 :au     BufReadPost     fugitive://*    set bufhidden=delete
-
-" go back to where you left
-""au      BufReadPost             *               if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
-""au      BufNewFile,BufRead      *.c,*.cc,*.h    imap }<CR> <Esc>:call CurlyBracket()<CR>a
-""au      BufNewFile,BufRead      *.cpp,*.C       imap }<CR> <Esc>:call CurlyBracket()<CR>a
-""au      BufNewFile,BufRead      *.java,*.idl    imap }<CR> <Esc>:call CurlyBracket()<CR>a
-""au      BufNewFile,BufRead      *.php           imap }<CR> <Esc>:call CurlyBracket()<CR>a
-
-"":au     BufEnter			*.php 	set filetype=javascript | set filetype=php
-
 
 filetype plugin on
 syntax on
