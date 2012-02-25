@@ -1,3 +1,8 @@
+let g:pathogen_disabled = []
+if v:version < 702
+	call add(g:pathogen_disabled,'vim-autocomplpop')
+endif
+
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
@@ -21,9 +26,7 @@ call pathogen#helptags()
 "set runtimepath-=/usr/share/vim/vimfiles/after
 "set runtimepath-=~/.vim/bundle/tabular/after
 "set runtimepath-=~/.vim/after
-if v:version < 702
-    set runtimepath-=~/.vim/bundle/vim-autocomplpop/
-endif
+"set runtimepath-=~/.vim/bundle/vim-autocomplpop/
 
 ":au	FileType		perl				so ~/.vim/perl.vim
 ":au	FileType		php,html			so ~/.vim/html.vim
