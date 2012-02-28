@@ -36,7 +36,6 @@ function s:makeDefaultBehavior()
         \   'xhtml'  : [],
         \   'css'    : [],
         \   'php'    : [],
-        \   'javascript'    : [],
         \ }
   "---------------------------------------------------------------------------
   if !empty(g:acp_behaviorUserDefinedFunction) &&
@@ -121,13 +120,7 @@ function s:makeDefaultBehavior()
   "---------------------------------------------------------------------------
   call add(behavs.php, {
         \   'command' : "\<C-x>\<C-o>",
-        \   'meets'   : 'acp#meetsForHtmlOmni',
-        \   'repeat'  : 0,
-        \ })
-  "---------------------------------------------------------------------------
-  call add(behavs.javascript, {
-        \   'command' : "\<C-x>\<C-o>",
-        \   'meets'   : 'acp#meetsForHtmlOmni',
+        \   'meets'   : 'acp#meetsForPhpOmni',
         \   'repeat'  : 0,
         \ })
   "---------------------------------------------------------------------------
@@ -153,6 +146,7 @@ call s:defineOption('g:acp_behaviorKeywordIgnores', [])
 call s:defineOption('g:acp_behaviorFileLength', 0)
 call s:defineOption('g:acp_behaviorRubyOmniMethodLength', 0)
 call s:defineOption('g:acp_behaviorRubyOmniSymbolLength', 1)
+call s:defineOption('g:acp_behaviorPhpOmniLength', 0)
 call s:defineOption('g:acp_behaviorPythonOmniLength', 0)
 call s:defineOption('g:acp_behaviorPerlOmniLength', -1)
 call s:defineOption('g:acp_behaviorXmlOmniLength', 0)

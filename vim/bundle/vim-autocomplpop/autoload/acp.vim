@@ -121,6 +121,12 @@ function acp#meetsForRubyOmni(context)
 endfunction
 
 "
+function acp#meetsForPhpOmni(context)
+  return has('php') && g:acp_behaviorPhpOmniLength >= 0 &&
+        \ a:context =~ '\w\(\.\|::\|->\)\k\{' . g:acp_behaviorPhpOmniLength . ',}$'
+endfunction
+
+"
 function acp#meetsForPythonOmni(context)
   return has('python') && g:acp_behaviorPythonOmniLength >= 0 &&
         \ a:context =~ '\k\.\k\{' . g:acp_behaviorPythonOmniLength . ',}$'

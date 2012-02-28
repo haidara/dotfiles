@@ -6,21 +6,21 @@ endif
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-:filetype on
+" au BufRead,BufNewFile *.php so ~/.vim/bundle/myPlugin/after/ftplugin/php.vim
+" au FileType php call TextEnableCodeSnip('css', '<style', '</style', 'SpecialComment')
+:au     BufRead                     changelog       set spell spelllang=en_us
+" :au	    FileType                    *               set complete-=t
+:au	    FileType                    *               set complete+=U
+:au     BufRead                     *.js            set commentstring=//\ %s
+:au     BufRead                     */doc/*.txt 	map <c-Return> <c-]>
+:au     BufRead                     */doc/*.txt 	map <c-BS> 	 <c-t>
+:au	    VimEnter                    *		        call ChangeDirectory()
+:au     BufWritePost                .vimrc   	    so ~/.vimrc
+:au     BufReadPost                 fugitive://*    set bufhidden=delete
 
-:au     BufRead         *.php           set ft=php.html
-:au     BufNewFile      *.php           set ft=php.html
-:au	    FileType		*               set complete-=t
-:au     BufRead         *.php,*.js      set commentstring=//\ %s
-:au	    FileType		php             set makeprg=php\ -l\ %
-:au	    FileType		php             set errorformat=%m\ in\ %f\ on\ line\ %l
-:au     BufRead			*/doc/*.txt 	map <c-Return> <c-]>
-:au     BufRead			*/doc/*.txt 	map <c-BS> 	 <c-t>
-:au	    VimEnter     	*		        call ChangeDirectory()
-:au     BufWritePost 	.vimrc   	    so ~/.vimrc
-:au     BufReadPost     fugitive://*    set bufhidden=delete
-
+filetype on
 filetype plugin on
+filetype plugin indent on
 syntax on
 colorschem myscheme
 
@@ -66,7 +66,7 @@ set incsearch
 set backspace=start,indent,eol
 set ruler
 set visualbell
-""set cindent
+"set cindent
 set autoindent
 set smartindent
 set copyindent
@@ -109,11 +109,13 @@ set statusline=%f       "tail of the filename
 ""set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
 set statusline+=\ \ \ [%{&ff}] "file format
 ""set statusline+=%h    "help file flag
-set statusline+=%m      "modified flag
+set statusline+=%1*      "Red color
+set statusline+=%m       "modified flag
+set statusline+=%*      "back to regula color
 set statusline+=%r      "read only flag
 set statusline+=%y      "filetype
 set statusline+=%=      "left/right separator
-set statusline+=%1*      "Red color
+" set statusline+=%1*      "Red color
 "set statusline+=\ %{GitBranch()}\ 
 set statusline+=\ %{fugitive#statusline()}\ 
 set statusline+=%*      "Regulastatusline=%<%f %(%h%m%r %)%=%{TagName()} %-15.15(%l,%c%V%)%P%{GitBranch()} r color
@@ -121,9 +123,9 @@ set statusline+=\ \ \ \  "spaces
 set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ \ \ \ %P    "percent through file
-" set ofu=syntaxcomplete#Complete
-" set ofu=phpcomplete#phpComplete
 set clipboard=unnamed
+set autoread
+
 
 
 "  ================================="
@@ -131,20 +133,20 @@ set clipboard=unnamed
 "  ================================="
 
 map - :nohls<cr>
-map \v 			:new ~/.vimrc<CR>
-map \w 			:w<cr>
+map <leader>v 			:new ~/.vimrc<CR>
+map <leader>V 			:sp ~/.vim/bundle/myPlugin/<CR>
+map <leader>w 			:w<cr>
 map <s-up> <c-u>H
 map <s-down> <c-f>H
 
-map \\ 			:q<cr>
-map K 			:silent !google-chrome "http://www.php.net/"<cword><cr>
-map \n 			:cn<cr>
-map \f :set foldmethod=indent<CR>
-map \F :set foldmethod=manual<CR>zE
-map \s :stag <c-r>=expand("<cword>")<cr><cr>
-map <C-Tab> :tag <c-r>=expand("<cword>")<cr><cr>
-map \c :cn<CR>
-""map \g :grep <cword> *<cr>
+map <leader>\ 			:q<cr>
+map <leader>n 			:cn<cr>
+map <leader>f :set foldmethod=indent<CR>
+map <leader>F :set foldmethod=manual<CR>zE
+map <leader>s :stag <c-r>=expand("<cword>")<cr><cr>
+" map <C-Tab> :tag <c-r>=expand("<cword>")<cr><cr>
+map <leader>c :cn<CR>
+""map <leader>g :grep <cword> *<cr>
 map zz zO
 map '. `.
 
@@ -160,23 +162,22 @@ map <c-c> "*y
 map <M-Right> $
 map <M-Left> 0
 map + <C-W>+
-map <c-\[> <c-t>
+map <c-[> <c-t>
 map <tab> *
 map <S-tab> #
 map <M-Up> <c-w>k
 map <M-down> <c-w>j
 map <D-Up> <c-w>k
 map <D-down> <c-w>j
-map \g :execute "grep -R --include '*.php' --include '*.js' " . expand("<cword>") . " *" <CR> :copen<cr>
 " map <Space><Space> :CommandT<CR>
-map \| :only<cr>
+map <leader><bar> :only<cr>
 map gf :sp <cfile><cr>
 map Y y$    
 map ; :
-map <silent> <F4> :!ctags -f ./tags --langmap="php:+.inc" -h ".php.inc" -R --totals=yes --tag-relative=yes --PHP-kinds=+cf-v .<cr>
 map <F5> :GundoToggle<cr>
 "map <c-f> /function.*
-map ww viw
+" map ww viw
+map <leader>b :LustyJuggler<cr>
 
 
 imap =. => 
@@ -190,18 +191,20 @@ imap <M-Up> <esc><c-w>k
 imap <M-down> <esc><c-w>j
 imap <D-Up> <esc><c-w>k
 imap <D-down> <esc><c-w>j
-imap ss $
-imap jj $j
+imap zz <esc>
 
 " visual shifting (builtin-repeat)
 vnoremap . :normal .<CR>
 vnoremap <M-x> <esc>
-" vnoremap <tab> >gv
-" vnoremap <S-tab> <gv
-vnoremap \] <ESC>`>a]<ESC>`<i[<ESC>vf]
-vnoremap \0 <ESC>`>a)<ESC>`<i(<ESC>vf)
-vnoremap \" <ESC>`>a"<ESC>`<i"<ESC>vf"
-vnoremap \' <ESC>`>a'<ESC>`<i'<ESC>vf'
+vnoremap <leader>] <ESC>`>a]<ESC>`<i[<ESC>vf]
+vnoremap <leader>0 <ESC>`>a)<ESC>`<i(<ESC>vf)
+vnoremap <leader>" <ESC>`>a"<ESC>`<i"<ESC>vf"
+vnoremap <leader>' <ESC>`>a'<ESC>`<i'<ESC>vf'
+
+vnoremap <tab> >gv
+vnoremap <s-tab> <gv
+vnoremap > >gv
+vnoremap < <gv
 
 cmap ecl e class/class.
 cmap spc sp class/class.
@@ -408,5 +411,49 @@ augroup resCur
   autocmd!
   autocmd BufWinEnter * call ResCur()
 augroup END
+
+" " Hax to let us have multiple highlights within a single file
+" " http://vim.wikia.com/wiki/Different_syntax_highlighting_within_regions_of_a_file
+" " This took me so long to find and get working properly.
+" function! TextEnableCodeSnip(filetype,start,end,textSnipHl) abort "{{{
+"   let ft=toupper(a:filetype)
+"   let group='textGroup'.ft
+"   if exists('b:current_syntax')
+"     let s:current_syntax=b:current_syntax
+"     " Remove current syntax definition, as some syntax files (e.g. cpp.vim)
+"     " do nothing if b:current_syntax is defined.
+"     unlet b:current_syntax
+"   endif
+"   execute 'syntax include @'.group.' syntax/'.a:filetype.'.vim'
+"   try
+"     execute 'syntax include @'.group.' after/syntax/'.a:filetype.'.vim'
+"   catch
+"   endtry
+"   if exists('s:current_syntax')
+"     let b:current_syntax=s:current_syntax
+"   else
+"     unlet b:current_syntax
+"   endif
+"   execute 'syntax region textSnip'.ft.'
+"   \ matchgroup='.a:textSnipHl.'
+"   \ start="'.a:start.'" end="'.a:end.'"
+"   \ contains=@'.group.'
+"   \ containedin=ALL'
+"   " XXX ^^ This is needed for PHP, everything in a <?PHP ... ?> block is part
+"   " of a highlighting group, which breaks the rule as per vanilla in the wiki.
+" endfunction "}}}
+
+" function! FixCssHighlight()
+"     call TextEnableCodeSnip('css', '<style', '</style', 'SpecialComment')
+" endfunction
+
+function! s:ListFunctions()
+vimgrep /^\s*function/j %
+copen
+endfunction
+command! -bar -narg=0 LS call s:ListFunctions()
+
+
+
 
 

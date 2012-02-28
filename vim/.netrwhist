@@ -1,4 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/Users/haidara/dotfiles/vim/bundle/vim-autocomplpop'
-let g:netrw_dirhist_2='/Users/haidara/dotfiles/vim/bundle/vim-autocomplpop/plugin'
+let g:netrw_dirhist_cnt =0
