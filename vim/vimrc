@@ -162,7 +162,7 @@ map <c-c> "*y
 map <M-Right> $
 map <M-Left> 0
 map + <C-W>+
-map <c-[> <c-t>
+map <c-\[> <c-t>
 map <tab> *
 map <S-tab> #
 map <M-Up> <c-w>k
