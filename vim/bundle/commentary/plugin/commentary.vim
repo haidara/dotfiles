@@ -51,9 +51,9 @@ nnoremap <silent> <Plug>Commentary     :<C-U>set opfunc=<SID>go<CR>g@
 nnoremap <silent> <Plug>CommentaryLine :<C-U>call <SID>go(v:count1)<CR>
 
 if !hasmapto('<Plug>Commentary') || maparg('\\','n') ==# '' && maparg('\','n') ==# ''
-  xmap ''  <Plug>Commentary
-  nmap ''  <Plug>Commentary
-  nmap ''' <Plug>CommentaryLine
+  xmap <c-\>  <Plug>Commentary
+  nmap <c-\>  <Plug>Commentary
+  nmap <c-\>  <Plug>CommentaryLine
 endif
 
 " vim:set sw=2 sts=2:

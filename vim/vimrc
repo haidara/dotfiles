@@ -17,6 +17,8 @@ call pathogen#helptags()
 :au	    VimEnter                    *		        call ChangeDirectory()
 :au     BufWritePost                .vimrc   	    so ~/.vimrc
 :au     BufReadPost                 fugitive://*    set bufhidden=delete
+:au     BufReadPost                 *.php           set foldlevel=1
+:au     BufReadPost                 *.php           normal zM
 
 filetype on
 filetype plugin on
@@ -42,6 +44,8 @@ hi User1        guifg=white guibg=red
 
 "let g:snips_trigger_key='<c-j>'
 "let g:snips_trigger_key_backwards='<c-space>'
+"
+let g:js_indent_log = 0
 
 
 "  ================================="
@@ -141,8 +145,10 @@ map <s-down> <c-f>H
 
 map <leader>\ 			:q<cr>
 map <leader>n 			:cn<cr>
-map <leader>f :set foldmethod=indent<CR>
-map <leader>F :set foldmethod=manual<CR>zE
+" map <leader>f :set foldmethod=indent<CR>
+" map <leader>F :set foldmethod=manual<CR>zE
+map <leader>f zM
+map <leader>F zR
 map <leader>s :stag <c-r>=expand("<cword>")<cr><cr>
 " map <C-Tab> :tag <c-r>=expand("<cword>")<cr><cr>
 map <leader>c :cn<CR>
@@ -151,7 +157,7 @@ map zz zO
 map '. `.
 
 "tabs mapping
-map tt :tabnew<CR>
+map tt :999tabnew<CR>
 map <C-S-Left> :tabprevious<CR>
 map <C-S-Right> :tabnext<CR>
 map Q gq
@@ -178,6 +184,8 @@ map <F5> :GundoToggle<cr>
 "map <c-f> /function.*
 " map ww viw
 map <leader>b :LustyJuggler<cr>
+" map du u:diffupdate<cr>
+map <leader>= vi{=
 
 
 imap =. => 

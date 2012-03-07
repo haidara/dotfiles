@@ -22,11 +22,13 @@ imap <c-bs> <c-w>
 let php_minlines=10000
 let php_sql_query=1
 let php_htmlInStrings=1
-"let php_folding=1
+"let hp_folding=1
 ""set cindent
-setlocal foldmethod=manual
+" let php_folding=1
+" set foldmethod=indent
+" set foldlevel=1
 " Turn on PHP fast folds
-"EnableFastPHPFolds
+" EnableFastPHPFolds
 
 set commentstring=//\ %s
 set makeprg=php\ -l\ %
