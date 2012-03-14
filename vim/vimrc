@@ -1,4 +1,4 @@
-let g:pathogen_disabled = []
+let g:pathogen_disabled = ['supertab']
 if v:version < 702
 	call add(g:pathogen_disabled,'vim-autocomplpop')
 endif
@@ -6,12 +6,21 @@ endif
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+ " let g:user_zen_settings = {
+ "  \  'php' : {
+ "  \    'extends' : 'html',
+ "  \    'filters' : 'c',
+ "  \  },
+ "  \}
+
+
 " au BufRead,BufNewFile *.php so ~/.vim/bundle/myPlugin/after/ftplugin/php.vim
 " au FileType php call TextEnableCodeSnip('css', '<style', '</style', 'SpecialComment')
 :au     BufRead                     changelog       set spell spelllang=en_us
 " :au	    FileType                    *               set complete-=t
 :au	    FileType                    *               set complete+=U
 :au     BufRead                     *.js            set commentstring=//\ %s
+:au     BufRead                     *.scss          set ft=css
 :au     BufRead                     */doc/*.txt 	map <c-Return> <c-]>
 :au     BufRead                     */doc/*.txt 	map <c-BS> 	 <c-t>
 :au	    VimEnter                    *		        call ChangeDirectory()
@@ -19,6 +28,7 @@ call pathogen#helptags()
 :au     BufReadPost                 fugitive://*    set bufhidden=delete
 :au     BufReadPost                 *.php           set foldlevel=1
 :au     BufReadPost                 *.php           normal zM
+:au     BufReadPost                 *.php           set iskeyword-=\$
 
 filetype on
 filetype plugin on
@@ -40,22 +50,28 @@ hi User1        guifg=white guibg=red
 " let g:CommandTMaxHeight=8
 " let g:CommandTMaxFiles=3000
 " set wildignore+=*.o,*.obj,test/node_modules/**
-" let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = "context"
 
 "let g:snips_trigger_key='<c-j>'
 "let g:snips_trigger_key_backwards='<c-space>'
 "
-let g:js_indent_log = 0
+" let g:js_indent_log = 0
+" let g:fuf_keyOpen = '<C-j>'
+" let g:fuf_keyOpenSplit = '<CR>'
+" let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|swp|jpg|png)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
 
 "  ================================="
 "   General options
 "  ================================="
-set guifont=Monaco:h11
+" set guifont=Monaco:h11
+set guifont=Inconsolata:h14
+" set guifont=Droid\ Sans\ Mono:h12
+" set noantialias
 set nocompatible	                    " Use Vim defaults (much better!)
 set bs=start,indent,eol
 set ai			                        " always set autoindenting on
-set viminfo='10,\"100,:20,%
+set viminfo='30,\"100,:300,%
 set expandtab
 set shiftwidth=4
 set tabstop=4
@@ -97,7 +113,7 @@ set completeopt=menu,preview
 set hlsearch
 set t_Co=256
 set guioptions-=T
-set history=100
+set history=300
 set guioptions+=A
 set winminheight=0
 set modelines=5
@@ -129,6 +145,7 @@ set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ \ \ \ %P    "percent through file
 set clipboard=unnamed
 set autoread
+set hidden
 
 
 
@@ -176,6 +193,7 @@ map <M-down> <c-w>j
 map <D-Up> <c-w>k
 map <D-down> <c-w>j
 " map <Space><Space> :CommandT<CR>
+" map <space><space> :FufFileRecursive<cr> 
 map <leader><bar> :only<cr>
 map gf :sp <cfile><cr>
 map Y y$    
@@ -184,8 +202,8 @@ map <F5> :GundoToggle<cr>
 "map <c-f> /function.*
 " map ww viw
 map <leader>b :LustyJuggler<cr>
-" map du u:diffupdate<cr>
 map <leader>= vi{=
+map <leader>? di<?=<esc>pa?>
 
 
 imap =. => 
@@ -262,12 +280,12 @@ function! CAP_SQL()
 endfunction
 
 " Set up fancy printing
-set printexpr=PrintFile(v:fname_in)
-function! PrintFile(fname)
-  call system("gv " . a:fname)
-  call delete(a:fname)
-  return v:shell_error
-endfunc
+" set printexpr=PrintFile(v:fname_in)
+" function! PrintFile(fname)
+"   call system("gv " . a:fname)
+"   call delete(a:fname)
+"   return v:shell_error
+" endfunc
 
 
 
