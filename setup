@@ -1,0 +1,20 @@
+#!/bin/sh
+
+mkdir -p ~/dotfiles/backup
+
+files=".vim .vimrc .zshrc .oh-my-zsh"
+
+for file in $files
+do 
+    [ ! -L "~/$file" ] || {
+        mv $file ~/dotfiles/backup/
+    }
+done
+
+# git clone git://github.com/haidara/dotfiles.git ~/dotfiles
+
+ln -nfs ~/dotfiles/bash/bashrc ~/.bashrc
+ln -nfs ~/dotfiles/vim ~/.vim
+ln -nfs ~/dotfiles/vim/vimrc ~/.vimrc
+ln -nfs ~/dotfiles/zsh/zshrc ~/.zshrc
+ln -nfs ~/dotfiles/zsh/oh-my-zsh ~/.oh-my-zsh
